@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinja2 — Задания</title>
+</head>
+<body>
+
+    <h1>📚 Задания по Jinja2</h1>
+
+    <hr>
+
+    <h2>📝 Задание 1: Умножение числа на 2</h2>
+
+    <form method="POST" action="/">
+        <label for="number">Введите число:</label>
+        <input type="text" id="number" name="number" placeholder="Например: 5.5" required>
+        <button type="submit" name="multiply" value="1">Вычислить</button>
+    </form>
+
+    {% if text %}
+        <h3>Результат:</h3>
+        <p>{{ text }}</p>
+    {% endif %}
+
+    <hr>
+
+    <h2>📝 Задание 2: Площадь круга</h2>
+
+    <form method="POST" action="/">
+        <label for="radius">Введите радиус круга:</label>
+        <input type="text" id="radius" name="radius" placeholder="Например: 2.34" required>
+        <button type="submit" name="circle" value="1">Вычислить</button>
+    </form>
+
+    {% if r is not none %}
+        {# Вычисляем площадь круга прямо в шаблоне #}
+        {% set area = pi * r * r %}
+        <h3>Результат:</h3>
+        <p>Площадь круга с радиусом {{ r }} равна {{ area }}</p>
+    {% endif %}
+
+</body>
+</html>
