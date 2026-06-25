@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 tasks = [
     {'id': 1, 'title': 'Поесть блинчиков', 'done': False},
-    {'id': 2, 'title': 'Попсать', 'done': False},
+    {'id': 2, 'title': 'Поспать', 'done': False},
     {'id': 3, 'title': 'Поиграть в первый сезон WOW MIDNIGHT', 'done': False},
 ]
 
