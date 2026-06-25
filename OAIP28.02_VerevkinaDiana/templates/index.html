@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinja2 — Условия и калькулятор</title>
+</head>
+<body>
+
+    <h1>📚 Задания на 28.02</h1>
+
+    <hr>
+
+    <h2>📝 Задание 1: Найти среднее число</h2>
+
+    <form method="POST" action="/">
+        <label>Введите три числа:</label><br>
+        <input type="text" name="a" placeholder="Число a" required>
+        <input type="text" name="b" placeholder="Число b" required>
+        <input type="text" name="c" placeholder="Число c" required>
+        <button type="submit" name="task1" value="1">Найти среднее</button>
+    </form>
+
+    {% if result1 is not none %}
+        <h3>Результат:</h3>
+        <p>Среднее число: <strong>{{ result1 }}</strong></p>
+    {% endif %}
+
+    <hr>
+
+    <h2>📝 Задание 2: Калькулятор</h2>
+
+    <form method="POST" action="/">
+        <label>Введите выражение:</label><br>
+        <input type="text" name="num1" placeholder="Число 1" required>
+        <select name="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value=":">:</option>
+            <option value="**">**</option>
+        </select>
+        <input type="text" name="num2" placeholder="Число 2" required>
+        <button type="submit" name="task2" value="1">Вычислить</button>
+    </form>
+
+    {% if result2 is not none %}
+        <h3>Результат:</h3>
+        <p><strong>{{ result2 }}</strong></p>
+    {% endif %}
+
+    {% if error %}
+        <h3>Результат:</h3>
+        <p style="color: red;"><strong>{{ error }}</strong></p>
+    {% endif %}
+
+    <hr>
+
+    <h2>🔗 Альтернативный вариант (через URL)</h2>
+    <p>Перейдите по адресу:</p>
+    <ul>
+        <li><code>http://127.0.0.1:5000/7/*/2/</code> → результат: 14</li>
+        <li><code>http://127.0.0.1:5000/6.5/:/0.0/</code> → результат: Ошибка</li>
+        <li><code>http://127.0.0.1:5000/10/+/5/</code> → результат: 15</li>
+        <li><code>http://127.0.0.1:5000/2/**/3/</code> → результат: 8</li>
+    </ul>
+
+    {% if result is not none %}
+        <h3>Результат:</h3>
+        <p>{{ num1 }} {{ operator }} {{ num2 }} = <strong>{{ result }}</strong></p>
+    {% endif %}
+
+    {% if error %}
+        <h3>Результат:</h3>
+        <p style="color: red;"><strong>{{ error }}</strong></p>
+    {% endif %}
+
+</body>
+</html>
